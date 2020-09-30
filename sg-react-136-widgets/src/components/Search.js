@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 const Search = () => {
   const [term, setTerm] = useState("");
+  const [results, setResults] = useState([]);
+
+  // console.log(results);
 
   useEffect(() => {
     /* approach -1  - React */
@@ -31,9 +34,12 @@ const Search = () => {
           srsearch: term,
         },
       });
+      setResults(data.query.search);
     };
-    search();
-  });
+    if (term) {
+      search();
+    }
+  }, [term]);
 
   //   useEffect(() => {
   //     console.log("when ever render");
