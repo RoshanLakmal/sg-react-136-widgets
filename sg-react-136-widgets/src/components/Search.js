@@ -36,10 +36,9 @@ const Search = () => {
       });
       setResults(data.query.search);
     };
-    // if (term) {
-    //   search();
-    // }
-    search();
+    if (term) {
+      search();
+    }
   }, [term]);
 
   //   useEffect(() => {
