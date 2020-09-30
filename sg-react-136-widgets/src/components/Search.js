@@ -12,18 +12,15 @@ const Search = () => {
     //     await axios.get('abc');
     // };
     // search();
-
     /* approach -1  */
     // (async() => {
     //     await axios.get('abc');
     // })();
-
     /* approach -3  - promise */
     // axios.get('abc')
     //   .then((response) => {
     //     console.log(response.data);
     //   });
-
     const search = async () => {
       const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
         params: {
@@ -36,9 +33,21 @@ const Search = () => {
       });
       setResults(data.query.search);
     };
-    if (term) {
-      search();
-    }
+    const timeoutId = setTimeout(() => {
+      if (term) {
+        search();
+      }
+    }, 500);
+
+    return() => {
+      clearTimeout(timeoutId);
+    };
+    // console.log("Initial render or term was changed");
+    // return () => {
+    //   console.log("CLEANUP");
+    // };
+
+    
   }, [term]);
 
   //   useEffect(() => {
