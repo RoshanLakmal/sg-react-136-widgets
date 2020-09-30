@@ -33,21 +33,24 @@ const Search = () => {
       });
       setResults(data.query.search);
     };
-    const timeoutId = setTimeout(() => {
-      if (term) {
-        search();
-      }
-    }, 500);
 
-    return() => {
-      clearTimeout(timeoutId);
-    };
+    if (term && !results.length) {
+      search();
+    } else {
+      const timeoutId = setTimeout(() => {
+        if (term) {
+          search();
+        }
+      }, 1000);
+
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
     // console.log("Initial render or term was changed");
     // return () => {
     //   console.log("CLEANUP");
     // };
-
-    
   }, [term]);
 
   //   useEffect(() => {
