@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+// import "./App.css";
 import Accordion from "./components/Accordion";
 
 const items = [
