@@ -30,7 +30,7 @@ const Search = () => {
 
       setResults(data.query.search);
     };
-    if (debouncedTerm !== "") {
+    if (debouncedTerm && !results.length) {
       search();
     }
   }, [debouncedTerm]);
@@ -92,6 +92,8 @@ const Search = () => {
           <a
             href={`https://en.wikipedia.org?curid=${result.pageid}`}
             className="ui button"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Go
           </a>
