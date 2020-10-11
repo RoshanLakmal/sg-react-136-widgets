@@ -39,11 +39,12 @@ function App() {
   return (
     <div>
       {/* <Accordion items={items} /> */}
-      <Search />
-      {/* <Dropdown 
-      selected={selected} 
-      onSelectedChange={setSelected}
-      options={options} /> */}
+      {/* <Search /> */}
+      <Dropdown
+        selected={selected}
+        onSelectedChange={setSelected}
+        options={options}
+      />
     </div>
   );
 }
