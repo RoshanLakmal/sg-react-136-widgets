@@ -43,11 +43,14 @@ function App() {
       {/* <Search /> */}
       <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
       {showDropdown ?
+      <div>
       <Dropdown
         selected={selected}
         onSelectedChange={setSelected}
         options={options}
       />
+      {/* <p style={{color: selected.value}}>This text is {selected.value}</p> */}
+      </div>
       : null}
     </div>
   );
